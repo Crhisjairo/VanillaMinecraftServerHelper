@@ -38,12 +38,26 @@
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <TextField fx:id="ipField" alignment="CENTER" promptText="127.0.0.1">
+                        <TextField fx:id="ipField" promptText="localhost">
                            <VBox.margin>
                               <Insets bottom="4.0" />
                            </VBox.margin>
                         </TextField>
                         <PasswordField fx:id="pwdField" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" prefHeight="200.0">
+                     <children>
+                        <Label text="Port">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0">
+                     <children>
+                        <TextField fx:id="portField" prefHeight="24.0" prefWidth="70.0" promptText="25575" />
                      </children>
                   </VBox>
                </children>
