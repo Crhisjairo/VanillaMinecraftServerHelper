@@ -13,4 +13,6 @@ module crhisjairo.tools.vanillaminecraftserverhelper {
 
     opens crhisjairo.tools.vanillaminecraftserverhelper to javafx.fxml;
     exports crhisjairo.tools.vanillaminecraftserverhelper;
+    exports crhisjairo.tools.vanillaminecraftserverhelper.controllers;
+    opens crhisjairo.tools.vanillaminecraftserverhelper.controllers to javafx.fxml;
 }

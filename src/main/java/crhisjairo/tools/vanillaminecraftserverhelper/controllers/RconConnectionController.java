@@ -1,19 +1,12 @@
-package crhisjairo.tools.vanillaminecraftserverhelper;
+package crhisjairo.tools.vanillaminecraftserverhelper.controllers;
 
 import crhisjairo.tools.vanillaminecraftserverhelper.DAOs.RconConnection;
-import io.graversen.minecraft.rcon.MinecraftRcon;
-import io.graversen.minecraft.rcon.service.ConnectOptions;
-import io.graversen.minecraft.rcon.service.MinecraftRconService;
-import io.graversen.minecraft.rcon.service.RconDetails;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.time.Duration;
-
-public class HelloController {
+public class RconConnectionController {
     @FXML
     private TextField ipField;
 
