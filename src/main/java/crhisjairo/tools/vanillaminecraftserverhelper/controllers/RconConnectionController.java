@@ -34,8 +34,6 @@ public class RconConnectionController {
 
     @FXML
     public void initialize() {
-
-
         cbLocales.setItems(languages);
         cbLocales.setValue(languages.get(
                 VanillaMinecraftServerHelperApplication.getCurrentLocaleStrings().ordinal()

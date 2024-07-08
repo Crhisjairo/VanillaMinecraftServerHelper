@@ -28,7 +28,7 @@
               </rowConstraints>
                <children>
                   <ComboBox fx:id="cbLocales" onAction="#onLangSelected" prefWidth="90.0" promptText="English" visibleRowCount="5" GridPane.columnIndex="1" />
-                  <Label contentDisplay="CENTER" text="RCON Connection" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+                  <Label contentDisplay="CENTER" text="%rconConnectionTitle" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -88,12 +88,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="49.0" prefWidth="578.0">
                <children>
-                  <Button mnemonicParsing="false" text="Help">
+                  <Button mnemonicParsing="false" text="%help">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#onHelloButtonClick" text="Connect">
+                  <Button mnemonicParsing="false" onMouseClicked="#onHelloButtonClick" text="%connect">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>

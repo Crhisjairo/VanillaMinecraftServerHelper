@@ -16,18 +16,22 @@ public class VanillaMinecraftServerHelperApplication extends Application {
     private static LocaleStrings currentLocaleStrings = LocaleStrings.en_US;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws Exception {
         VanillaMinecraftServerHelperApplication.primaryStage = stage;
         loadView();
     }
 
-    private static void loadView() throws IOException {
+    private static void loadView() throws Exception {
         ResourceBundle bundle = ResourceBundle.getBundle("i18n.strings", currentLocale);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(VanillaMinecraftServerHelperApplication.class.getResource("rcon-connection-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                VanillaMinecraftServerHelperApplication.class.getResource("rcon-connection-view.fxml")
+        );
+        fxmlLoader.setResources(bundle);
+
         Scene scene = new Scene(fxmlLoader.load(), 400, 230);
 
-        primaryStage.setTitle("Vanilla Minecraft Server Helper");
+        primaryStage.setTitle(bundle.getString("appTitle"));
         primaryStage.setScene(scene);
         primaryStage.show();
 
