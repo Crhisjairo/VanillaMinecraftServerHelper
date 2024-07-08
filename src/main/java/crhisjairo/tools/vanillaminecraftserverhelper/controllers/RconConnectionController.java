@@ -1,10 +1,19 @@
 package crhisjairo.tools.vanillaminecraftserverhelper.controllers;
 
 import crhisjairo.tools.vanillaminecraftserverhelper.DAOs.RconConnection;
+import crhisjairo.tools.vanillaminecraftserverhelper.VanillaMinecraftServerHelperApplication;
+import crhisjairo.tools.vanillaminecraftserverhelper.utils.LocaleStrings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.util.Arrays;
 
 public class RconConnectionController {
     @FXML
@@ -15,6 +24,23 @@ public class RconConnectionController {
 
     @FXML
     private PasswordField pwdField;
+
+    @FXML
+    private ComboBox cbLocales;
+
+    private final ObservableList<LocaleStrings> languages = FXCollections.observableArrayList(
+            Arrays.asList(LocaleStrings.values())
+    );
+
+    @FXML
+    public void initialize() {
+
+
+        cbLocales.setItems(languages);
+        cbLocales.setValue(languages.get(
+                VanillaMinecraftServerHelperApplication.getCurrentLocaleStrings().ordinal()
+        ));
+    }
 
     @FXML
     protected void onHelloButtonClick() {
@@ -40,8 +66,33 @@ public class RconConnectionController {
             case CONNECTED:
                 // TODO: Implement new window for connected state.
                 System.out.println("Connected!");
+                openServerControlPanel();
                 break;
         }
+    }
+
+    @FXML
+    protected void onLangSelected(ActionEvent event) {
+        LocaleStrings selectedLang = (LocaleStrings) cbLocales.getValue();
+        System.out.println("Lang selected: " + selectedLang);
+
+        try {
+            VanillaMinecraftServerHelperApplication.setLocale(selectedLang);
+        } catch (Exception e) {
+            System.err.println("exception : " + e);
+        }
+
+    }
+
+    private void openServerControlPanel() {
+        // Close current windows
+        Stage stage = (Stage) ipField.getScene().getWindow();
+        stage.close();
+
+        Stage serverControlPanelStage = new Stage();
+        serverControlPanelStage.setTitle("");
+
+
     }
 
     private void showAlertDialog(String message, Alert.AlertType type) {
