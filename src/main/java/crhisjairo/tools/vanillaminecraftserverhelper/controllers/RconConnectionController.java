@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 public class RconConnectionController {
     @FXML
@@ -31,6 +32,8 @@ public class RconConnectionController {
     private final ObservableList<LocaleStrings> languages = FXCollections.observableArrayList(
             Arrays.asList(LocaleStrings.values())
     );
+
+    private final Logger logger = VanillaMinecraftServerHelperApplication.getLogger();
 
     @FXML
     public void initialize() {
@@ -79,7 +82,6 @@ public class RconConnectionController {
         } catch (Exception e) {
             System.err.println("exception : " + e);
         }
-
     }
 
     private void openServerControlPanel() {
@@ -89,8 +91,6 @@ public class RconConnectionController {
 
         Stage serverControlPanelStage = new Stage();
         serverControlPanelStage.setTitle("");
-
-
     }
 
     private void showAlertDialog(String message, Alert.AlertType type) {

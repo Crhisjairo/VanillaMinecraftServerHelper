@@ -3,6 +3,8 @@ module crhisjairo.tools.vanillaminecraftserverhelper {
     requires javafx.fxml;
     requires javafx.web;
 
+    requires java.logging;
+
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;

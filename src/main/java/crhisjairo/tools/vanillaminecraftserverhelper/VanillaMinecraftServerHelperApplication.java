@@ -9,16 +9,26 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class VanillaMinecraftServerHelperApplication extends Application {
     private static Stage primaryStage;
     private static Locale currentLocale = new Locale("en", "US");
     private static LocaleStrings currentLocaleStrings = LocaleStrings.en_US;
 
+    private static final Logger logger = Logger.getLogger(VanillaMinecraftServerHelperApplication.class.getName());
+
     @Override
     public void start(Stage stage) throws Exception {
         VanillaMinecraftServerHelperApplication.primaryStage = stage;
+        setupLogger();
         loadView();
+    }
+
+    private static void setupLogger() {
+        // TODO: Add FileHandler later.
+        logger.setLevel(Level.ALL);
     }
 
     private static void loadView() throws Exception {
@@ -29,12 +39,15 @@ public class VanillaMinecraftServerHelperApplication extends Application {
         );
         fxmlLoader.setResources(bundle);
 
-        Scene scene = new Scene(fxmlLoader.load(), 400, 230);
+        Scene scene = new Scene(fxmlLoader.load(), 500, 230);
 
         primaryStage.setTitle(bundle.getString("appTitle"));
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
 
+    public static Logger getLogger() {
+        return logger;
     }
 
     public static void setLocale(LocaleStrings selectedLang) throws Exception {
